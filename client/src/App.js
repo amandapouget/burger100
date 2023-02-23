@@ -1,13 +1,30 @@
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+const dummyUserQuery="Raleigh, NC";
+const fetchDummyResponse = (setDummyResponse) => {
+  fetch('http://localhost:8000/')
+    .then(response => response.json())
+    .then(data => setDummyResponse(data.restaurants));
+};
+
 function App() {
+  const [dummyResponse, setDummyResponse] = useState('');
+
+  useEffect(() => {
+    fetchDummyResponse(setDummyResponse);
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Request: {dummyUserQuery}
+        </p>
+        <p>
+          Response: {dummyResponse}
         </p>
         <a
           className="App-link"

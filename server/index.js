@@ -12,6 +12,9 @@ app
   .use(express.urlencoded({ extended: true }));
 
 // Routes
+app.get('/', (req, res) => {
+  res.json({ restaurants: `You requested restaurant data` });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
