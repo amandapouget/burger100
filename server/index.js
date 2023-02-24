@@ -15,6 +15,7 @@ app
 
 // Routes
 app.get('/', (req, res) => {
+  const variable = "garaje-san-francisco";
   fetch('https://api.yelp.com/v3/graphql', {
     method: 'POST',
     headers: {
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
     },
     body: `
     {
-        business(id: "garaje-san-francisco") {
+        business(id: "${variable}") {
             name
             id
             rating
