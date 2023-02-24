@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import burger from './burger.png';
 import './App.css';
 
 const dummyUserQuery="Raleigh, NC";
@@ -19,7 +19,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Burger 100</h1>
+        <img src={burger} className="Burger-logo" alt="Burger Logo" />
+        <h3>Where the Best 100 Burgers Compete to Find the Perfect Burger</h3>
         <p>
           Request: {dummyUserQuery}
         </p>
@@ -35,6 +37,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <p><a href='https://pngtree.com/so/layered'>Burger png from pngtree.com</a></p>
     </div>
   );
 }
