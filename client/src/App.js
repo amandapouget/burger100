@@ -6,7 +6,7 @@ const dummyUserQuery="Raleigh, NC";
 const fetchDummyResponse = (setDummyResponse) => {
   fetch('http://localhost:8000/')
     .then(response => response.json())
-    .then(data => setDummyResponse(data.restaurants));
+    .then(data => setDummyResponse(JSON.stringify(data)));
 };
 
 function App() {
