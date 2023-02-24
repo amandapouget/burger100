@@ -14,8 +14,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "node-fetch": "^3.3.0",
-    "sqlite3": "^5.1.4"
+    "mongodb": "^5.1.0",
+    "node-fetch": "^3.3.0"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",

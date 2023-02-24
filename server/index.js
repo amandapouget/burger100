@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch';
+import { connectToDB } from './database.js';
 import { YELP_API_KEY } from './apiKey.js';
-
 
 const app = express();
 const port = 8000;
@@ -35,6 +35,17 @@ app.get('/', (req, res) => {
     .then((data) => res.json(data));
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+
+// Startup
+const start = async () => {
+  try {
+    // Make sure database is online before accepting requests
+    await connectToDB();
+    app.listen(port, () => {
+      console.log(`Example app listening on port ${port}`);
+    });
+  } catch(error) {
+    console.error(error);
+  }
+}
+start();
