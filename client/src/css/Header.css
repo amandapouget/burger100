@@ -1,0 +1,22 @@
+.burger-title {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .burger-logo {
+    animation: pulse 2s infinite linear;
+  }
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.90);
+	}
+	50% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(0.90);
+	}
+}
