@@ -29,11 +29,7 @@ async function main() {
       let search = await Search.findOne({ location, price }).exec();
       // Otherwise, get new data from yelp and cache it as a Search
       if (!search) {
-        const yelpData = await Yelp.fetchBurgerJoints(location, price);
-        if (!yelpData.data?.search) {
-          throw new Error(yelpData.errors?.map(error => error.message).join(', '));
-        }
-        const { total, business: burgerJoints } = yelpData.data.search;
+        const { total, burgerJoints } = await Yelp.searchForBurgerJoints(location, price);
         search = new Search({ location, price, total, burgerJoints });
         await search.save();
       }
@@ -54,11 +50,7 @@ async function main() {
       if (searchId) await Search.deleteOne({ _id: searchId }).exec();
       await Search.deleteMany({ location, price }).exec();
       // Create a new search with refreshed data from Yelp
-      const yelpData = await Yelp.fetchBurgerJoints(location, price);
-      if (!yelpData.data?.search) {
-        throw new Error(yelpData.errors?.map(error => error.message).join(', '));
-      }
-      const { total, business: burgerJoints } = yelpData.data.search;
+      const { total, burgerJoints } = await Yelp.searchForBurgerJoints(location, price);
       const search = new Search({ location, price, total, burgerJoints });
       await search.save();
       res.json(search);
