@@ -3,20 +3,18 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import CloseButton from 'react-bootstrap/CloseButton';
 import { deleteBurgerJointFromSearch } from '../api';
 
-const Total = ({ total }) => {
+const Total = ({ total, burgerJoints }) => {
   let displayTotal;
-  if (!total) {
-    displayTotal = 'No Burger Joints Found for This Quest';
-  } else if (total >= 100) {
-    displayTotal = `Top 100 of ${total} Burger Joints`;
+  if (!total || !burgerJoints.length) {
+    displayTotal = 'No Top Burger Joints Found for This Quest';
   } else {
-    displayTotal = `Top ${total} Burger Joints`;
+    displayTotal = `Top ${burgerJoints.length} of ${total} Burger Joints`;
   }
   return <div className="fw-bold">{displayTotal}</div>
 }
 
 const BurgerJointRow = ({ searchId, burgerJoint, onDelete }) => {
-  const { id: burgerJointId, name } = burgerJoint;
+  const { id: burgerJointId, name, url } = burgerJoint;
 
   const onClose = useCallback(() => {
     deleteBurgerJointFromSearch(searchId, burgerJointId).then(onDelete);
@@ -32,8 +30,8 @@ const BurgerJointRow = ({ searchId, burgerJoint, onDelete }) => {
 
 export const SearchResult = ({ searchId, total, burgerJoints, onDelete }) => (
   <>
-    <Total total={total}/>
-    <ListGroup as="ol" numbered>
+    <Total total={total} burgerJoints={burgerJoints}/>
+    <ListGroup numbered>
       {burgerJoints.map(burgerJoint => (
         <BurgerJointRow
           searchId={searchId}

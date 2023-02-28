@@ -69,9 +69,7 @@ async function main() {
       if (!burgerJointId) res.status(400).send('Missing burgerJointId');
       const search = await Search.findById(searchId).exec();
       // Remove the burger joint if it is still on the model
-      const remoteTotal = search.total - search.burgerJoints.length;
       search.burgerJoints = search.burgerJoints.filter(burgerJoint => burgerJoint.id !== burgerJointId);
-      search.total = remoteTotal + search.burgerJoints.length;
       // Save the model
       await search.save();
       res.json(search);
