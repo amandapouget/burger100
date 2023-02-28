@@ -22,7 +22,7 @@ const BurgerJointRow = ({ searchId, burgerJoint, onDelete }) => {
 
   return (
     <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
-      <div className="ms-2 me-auto">{name}</div>
+      <a className="ms-2 me-auto" href={url}>{name}</a>
       <CloseButton aria-label="Delete" onClick={onClose}/>
     </ListGroup.Item>
   );
