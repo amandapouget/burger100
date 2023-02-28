@@ -31,11 +31,11 @@ export const Body = () => {
   }, [setSearchId, setBurgerJoints, setTotal, setError]);
 
   const loadSearch = useCallback(() => {
-    getOrCreateSearch(location, selectedPrices).then(setSearch);
+    getOrCreateSearch({ location, selectedPrices }).then(setSearch);
   }, [location, selectedPrices, setSearch]);
 
   const resetSearch = useCallback(() => {
-    replaceSearchWithRefreshedData(location, selectedPrices, searchId)
+    replaceSearchWithRefreshedData({ location, selectedPrices, searchId })
       .then(setSearch);
   }, [location, selectedPrices, searchId, setSearch]);
   

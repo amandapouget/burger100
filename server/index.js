@@ -18,7 +18,6 @@ async function main() {
     .use(express.json())
     .use(express.urlencoded({ extended: true }))
 
-
   // Corresponds to "Search" button
   app.post('/search', search.post);
 

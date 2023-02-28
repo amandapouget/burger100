@@ -6,7 +6,7 @@ const findOrCreateSearch = async ({ location, price }) => {
   let search = await Search.findOne({ location, price }).exec();
   // Else, create a new search by fetching Yelp data
   if (!search) {
-    const { total, burgerJoints } = await Yelp.searchForBurgerJoints(location, price);
+    const { total, burgerJoints } = await Yelp.searchForBurgerJoints({ location, price });
     search = new Search({ location, price, total, burgerJoints });
     await search.save();
   }
@@ -19,7 +19,7 @@ const refreshSearch = async ({ location, price, searchId }) => {
   if (searchId) await Search.deleteOne({ _id: searchId }).exec();
   await Search.deleteMany({ location, price }).exec();
   // Create a new search with refreshed data from Yelp
-  const { total, burgerJoints } = await Yelp.searchForBurgerJoints(location, price);
+  const { total, burgerJoints } = await Yelp.searchForBurgerJoints({ location, price });
   const search = new Search({ location, price, total, burgerJoints });
   await search.save();
   // Return the replacement search

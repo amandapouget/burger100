@@ -17,7 +17,7 @@ const BurgerJointRow = ({ searchId, burgerJoint, onDelete }) => {
   const { id: burgerJointId, name, url } = burgerJoint;
 
   const onClose = useCallback(() => {
-    deleteBurgerJointFromSearch(searchId, burgerJointId).then(onDelete);
+    deleteBurgerJointFromSearch({ searchId, burgerJointId }).then(onDelete);
   }, [searchId, burgerJointId, onDelete]); 
 
   return (

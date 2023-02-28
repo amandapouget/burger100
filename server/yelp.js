@@ -41,7 +41,7 @@ const fetchBurgerJoints = async ({ location, price, offset }) => {
   return yelpData.data.search;
 };
 
-const searchForBurgerJoints = async (location, price) => {
+const searchForBurgerJoints = async ({ location, price }) => {
   let total;
   let burgerJoints = [];
   let requestsMade = 0;

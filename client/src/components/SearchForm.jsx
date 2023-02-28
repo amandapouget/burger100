@@ -30,12 +30,12 @@ export const SearchForm = ({
   
   const onSubmit = useCallback((event) => {
     event.preventDefault();
-    loadSearch(location, selectedPrices);
+    loadSearch({ location, selectedPrices });
   }, [location, selectedPrices, loadSearch]);
 
   const onRefresh = useCallback((event) => {
     event.preventDefault();
-    resetSearch(location, selectedPrices, searchId);
+    resetSearch({ location, selectedPrices, searchId });
   }, [location, selectedPrices, searchId, resetSearch]);
 
   return (
