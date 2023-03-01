@@ -11,19 +11,16 @@ I chose to combine the refresh/reset concepts (which could have been separate fe
 ```
 brew tap mongodb/brew
 brew install mongodb-community
-// in repo root
+brew services start mongodb-community
+// In repo root directory
 yarn install
-mkdir ./data
-// in /client directory
+cd client
 yarn install
 ```
 
-## Run (from repo root directory)
+## Run
 ```
-// first terminal tab
-brew services start mongodb-community
-mongod --dbpath=./data
-// second terminal tab
+// In repo root directory
 yarn start
 ```
 
