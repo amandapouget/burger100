@@ -38,6 +38,7 @@ export const SearchForm = ({
     resetSearch({ location, selectedPrices, searchId });
   }, [location, selectedPrices, searchId, resetSearch]);
 
+  // These components from bootstrap just add CSS but no form functionality
   return (
     <Form onSubmit={onSubmit}>
       <Row className="mb-3">
@@ -52,6 +53,7 @@ export const SearchForm = ({
         </Form.Group>
         <Form.Group as={Col} controlId="price">
           <Form.Label>Price</Form.Label>
+          {/* react-select is an industry-leading library for multi-select components */}
           <Select
             isMulti
             options={YELP_PRICES}
