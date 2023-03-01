@@ -22,7 +22,7 @@ I used an ORM (mongoose) because job security comes from producing exciting new 
 Finally, I used the GraphQL api to hit Yelp since I know you have an interest in that technology and it's so easy to work with.
 
 ### Front-end Architecture
-I used Bootstrap components since they add CSS without adding behavior. The large systems I have worked in all had core component libraries and in my current role I have contributed extensively to the core component libraries.
+I used Bootstrap components since they add CSS without adding behavior. (I also threw in some subtle animation on the logo just to show I'm comfortable with hand-rolling anything in CSS.) The large systems I have worked in all had core component libraries and in my current role I have contributed extensively to the core component libraries.
 
 I split the api calls off to a separate file, since these usually end up abstracted away in large front-end systems.
 
