@@ -20,8 +20,10 @@ yarn install
 
 ## Run (from repo root directory)
 ```
+// first terminal tab
 brew services start mongodb-community
 mongod --dbpath=./data
+// second terminal tab
 yarn start
 ```
 
