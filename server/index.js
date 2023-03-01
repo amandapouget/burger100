@@ -28,6 +28,10 @@ async function main() {
   app.patch('/search', search.patch);
 
   // Universal route error handler
+  // In a real system, I would not dump any error that arises to the user.
+  // Instead, I would sanitize the error message and display a code
+  // or other universal pattern so that the user can only see certain approved
+  // messages. (Localization also a concern there.)
   app.use((error, req, res, next) => {
     console.log('Error processing request:', error.message); 
     res.header("Content-Type", 'application/json');
