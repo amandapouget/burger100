@@ -12,6 +12,7 @@ I chose to combine the refresh/reset concepts (which could have been separate fe
 brew tap mongodb/brew
 brew install mongodb-community
 yarn install
+mkdir ./data // in repo root
 ```
 
 ## Run (from repo root directory)
