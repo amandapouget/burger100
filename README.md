@@ -20,3 +20,7 @@ brew services start mongodb-community
 mongod --dbpath=./data
 yarn start
 ```
+
+## Screenshot
+This is what the app looks like:
+![screenshot](./Screenshot.png)
