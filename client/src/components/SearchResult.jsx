@@ -3,6 +3,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import CloseButton from 'react-bootstrap/CloseButton';
 import { deleteBurgerJointFromSearch } from '../api';
 
+// Renders the 'Total' string at the top of the results table
 const Total = ({ total, burgerJoints }) => {
   let displayTotal;
   if (!total || !burgerJoints.length) {
@@ -13,17 +14,19 @@ const Total = ({ total, burgerJoints }) => {
   return <div className="fw-bold">{displayTotal}</div>
 }
 
+// Renders one individual row in the results table
 const BurgerJointRow = ({ searchId, burgerJoint, onDelete }) => {
   const { id: burgerJointId, name, url } = burgerJoint;
 
-  const onClose = useCallback(() => {
+  const onClickX = useCallback(() => {
     deleteBurgerJointFromSearch({ searchId, burgerJointId }).then(onDelete);
   }, [searchId, burgerJointId, onDelete]); 
 
   return (
     <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
+      {/* Renders each burger joint name as a link to the restaurant's Yelp page */}
       <a className="ms-2 me-auto" href={url} target="_blank" rel="noreferrer">{name}</a>
-      <CloseButton aria-label="Delete" onClick={onClose}/>
+      <CloseButton aria-label="Delete" onClick={onClickX}/>
     </ListGroup.Item>
   );
 };
