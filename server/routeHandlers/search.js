@@ -1,4 +1,4 @@
-import SearchController from '../controllers/SearchController.js';
+const SearchController = require('../controllers/SearchController.js');
 
 const getParams = ({ body }) => ({
   location: body.location || 'All',
@@ -41,4 +41,4 @@ const patch = async (req, res, next) => {
   }
 };
 
-export default { post, put, patch };
+module.exports = { post, put, patch };

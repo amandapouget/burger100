@@ -1,7 +1,7 @@
-import express from 'express';
-import cors from 'cors';
-import mongoose from 'mongoose';
-import search from './routeHandlers/search.js';
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const search = require('./routeHandlers/search.js');
 
 const app = express();
 const port = 8000;

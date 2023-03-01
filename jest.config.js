@@ -1,5 +1,6 @@
 const config = {
-  testPathIgnorePatterns: ["/node_modules/", "/client/"]
+  testPathIgnorePatterns: ["/node_modules/", "/client/"],
+  preset: "@shelf/jest-mongodb"
 };
 
-export default config;
+module.exports = config;

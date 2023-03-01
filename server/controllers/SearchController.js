@@ -1,5 +1,5 @@
-import { Search } from '../models/Search.js';
-import Yelp from '../yelp.js';
+const { Search } = require('../models/Search.js');
+const Yelp = require('../yelp.js');
 
 const findOrCreateSearch = async ({ location, price }) => {
   // Find any existing search
@@ -37,7 +37,7 @@ const deleteBurgerJointFromSearch = async ({ searchId, burgerJointId }) => {
   return search;
 };
 
-export default {
+module.exports = {
   findOrCreateSearch,
   refreshSearch,
   deleteBurgerJointFromSearch

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
 
 // One could expand here by adding database validations, etc.
@@ -10,5 +10,7 @@ const searchSchema = new mongoose.Schema({
   burgerJoints: [Object],
 });
 
-export const Search = mongoose.model('Search', searchSchema);
+const Search = mongoose.model('Search', searchSchema);
+
+module.exports = { Search };
 

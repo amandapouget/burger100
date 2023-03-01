@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
 // In a real application, I would never commit an API key directly to the codebase.
 // (I would instead use git-secret or a token/secrets configuration common to deployment setups.)
@@ -61,4 +61,4 @@ const searchForBurgerJoints = async ({ location, price }) => {
   return { total, burgerJoints };
 };
 
-export default { searchForBurgerJoints };
+module.exports = { searchForBurgerJoints };
