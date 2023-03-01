@@ -28,20 +28,20 @@ I split the api calls off to a separate file, since these usually end up abstrac
 
 I named and split out separate React components wherever possible so the HTML display can be read at different levels of abstraction.
 
-# Readability
+### Readability
 I used named arguments wherever possible in my function signatures as this forces callers and functions to use the same names everywhere. I wrote dry code with descriptive names and avoided using anonymous functions.
 
 I also wrote code within each function at the same level of abstraction. That is, whatever code you read is at the same high (or low) level as the code immediately surrounding it. This allows you to read the code from a summary or granular perspective to the degree you want to without being forced to wade through details in order to grasp the big picture.
 
-# Efficiency
+### Efficiency
 I avoided N+1 queries but did not bother creating custom indexes or other code specifically designed to counter performance problems not yet known to exist.
 
 One area the efficiency of the app could be improved would be executing the Yelp queries in parallel rather than sequentially. I left this "performance bug" in the code for compare/contrast purposes and expound on it in a comment.
 
-# Modular design
+### Modular design
 I separated code by function, module, file and folder. I genuinely believe a system is most extensible when each module exposes itself on a "need to know basis" and has a singular unique purpose.
 
-# Tests
+### Tests
 I wrote a couple of illustrative tests but did not extensively test this system the way I would with code I wrote in real life. I've written thousands of tests in my career in jest, jasmine, mocha and other frameworks.
 
 (I figure a couple of tests is enough to illustrate skill in this area. If you want more, just ask and I'm happy to build out a test suite with unit, integration, behavior, and api-level tests. When I interview with live coding exercises, I solve them TDD and usually write my own custom runner as my first few lines of code.)
