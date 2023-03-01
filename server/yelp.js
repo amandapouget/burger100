@@ -47,6 +47,11 @@ const searchForBurgerJoints = async ({ location, price }) => {
   let burgerJoints = [];
   let requestsMade = 0;
   // Keep requesting burger joints until we max out those available or receive the Burger 100
+  // Performance note: these requests currently execute sequentially, which is slow.
+  // An improvement would be to wrap them in Promise.all so they execute in parallel
+  // which still preserving the ultimate rank order of the burger joints
+  // regardless of which request returns first.
+  // I am leaving the slower version in here to illustrate the difference.
   do {
     const offset = YELP_MAX_RESULTS_PER_REQUEST * requestsMade++;
     const yelpData = await fetchBurgerJoints({ location, price, offset });
