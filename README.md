@@ -24,5 +24,11 @@ yarn install
 yarn start
 ```
 
+## Tests
+```
+// In repo root directory
+yarn test
+```
+
 ## Screenshot
 ![screenshot](./Screenshot.png)
