@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const search = require('./routeHandlers/search.js');
+const searchService = require('./routeHandlers/search.js');
 
 const app = express();
 const port = 8000;
@@ -19,13 +19,13 @@ async function main() {
     .use(express.urlencoded({ extended: true }))
 
   // Corresponds to "Search" button
-  app.post('/search', search.post);
+  app.post('/search', searchService.post);
 
   // Corresponds to "Refresh" button
-  app.put('/search', search.put);
+  app.put('/search', searchService.put);
 
   // Corresponds to "X" button by individual burger joints
-  app.patch('/search', search.patch);
+  app.patch('/search', searchService.patch);
 
   // Universal route error handler
   // In a real system, I would not dump any error that arises to the user.
